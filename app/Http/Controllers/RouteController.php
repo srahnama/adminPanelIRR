@@ -55,7 +55,7 @@ class RouteController extends AppBaseController
      */
     public function store(CreateRouteRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $route = $this->routeRepository->create($input);
 

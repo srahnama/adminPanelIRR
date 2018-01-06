@@ -55,7 +55,7 @@ class TripLocationController extends AppBaseController
      */
     public function store(CreateTripLocationRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $tripLocation = $this->tripLocationRepository->create($input);
 

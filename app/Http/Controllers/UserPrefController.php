@@ -55,7 +55,7 @@ class UserPrefController extends AppBaseController
      */
     public function store(CreateUserPrefRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $userPref = $this->userPrefRepository->create($input);
 

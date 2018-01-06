@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\myfilter;
 use App\Http\Requests\CreateUserExperienceRequest;
 use App\Http\Requests\UpdateUserExperienceRequest;
 use App\Repositories\UserExperienceRepository;
@@ -55,7 +56,7 @@ class UserExperienceController extends AppBaseController
      */
     public function store(CreateUserExperienceRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $userExperience = $this->userExperienceRepository->create($input);
 
@@ -152,4 +153,5 @@ class UserExperienceController extends AppBaseController
 
         return redirect(route('userExperiences.index'));
     }
+
 }

@@ -55,7 +55,7 @@ class RouteThemeController extends AppBaseController
      */
     public function store(CreateRouteThemeRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $routeTheme = $this->routeThemeRepository->create($input);
 

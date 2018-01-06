@@ -55,7 +55,7 @@ class PlaceTransportationController extends AppBaseController
      */
     public function store(CreatePlaceTransportationRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $placeTransportation = $this->placeTransportationRepository->create($input);
 

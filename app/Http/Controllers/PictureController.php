@@ -55,7 +55,7 @@ class PictureController extends AppBaseController
      */
     public function store(CreatePictureRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $picture = $this->pictureRepository->create($input);
 

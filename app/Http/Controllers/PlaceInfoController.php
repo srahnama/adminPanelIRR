@@ -55,7 +55,7 @@ class PlaceInfoController extends AppBaseController
      */
     public function store(CreatePlaceInfoRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $placeInfo = $this->placeInfoRepository->create($input);
 

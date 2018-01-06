@@ -55,7 +55,7 @@ class PlaceController extends AppBaseController
      */
     public function store(CreatePlaceRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $place = $this->placeRepository->create($input);
 

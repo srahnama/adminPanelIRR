@@ -55,7 +55,7 @@ class RouteLocationController extends AppBaseController
      */
     public function store(CreateRouteLocationRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $routeLocation = $this->routeLocationRepository->create($input);
 

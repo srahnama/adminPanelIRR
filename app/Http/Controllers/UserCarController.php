@@ -55,7 +55,7 @@ class UserCarController extends AppBaseController
      */
     public function store(CreateUserCarRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $userCar = $this->userCarRepository->create($input);
 

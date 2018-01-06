@@ -55,7 +55,7 @@ class TripThemeController extends AppBaseController
      */
     public function store(CreateTripThemeRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $tripTheme = $this->tripThemeRepository->create($input);
 

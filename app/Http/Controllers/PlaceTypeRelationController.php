@@ -55,7 +55,7 @@ class PlaceTypeRelationController extends AppBaseController
      */
     public function store(CreatePlaceTypeRelationRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $placeTypeRelation = $this->placeTypeRelationRepository->create($input);
 

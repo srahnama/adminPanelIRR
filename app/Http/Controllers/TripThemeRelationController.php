@@ -55,7 +55,7 @@ class TripThemeRelationController extends AppBaseController
      */
     public function store(CreateTripThemeRelationRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $tripThemeRelation = $this->tripThemeRelationRepository->create($input);
 

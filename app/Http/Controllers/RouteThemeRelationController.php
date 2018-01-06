@@ -55,7 +55,7 @@ class RouteThemeRelationController extends AppBaseController
      */
     public function store(CreateRouteThemeRelationRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $routeThemeRelation = $this->routeThemeRelationRepository->create($input);
 

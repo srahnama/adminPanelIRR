@@ -55,7 +55,7 @@ class ContentController extends AppBaseController
      */
     public function store(CreateContentRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $content = $this->contentRepository->create($input);
 

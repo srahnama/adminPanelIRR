@@ -55,7 +55,7 @@ class RouteTodoController extends AppBaseController
      */
     public function store(CreateRouteTodoRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $routeTodo = $this->routeTodoRepository->create($input);
 

@@ -55,7 +55,7 @@ class TripAvailabilitieController extends AppBaseController
      */
     public function store(CreateTripAvailabilitieRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $tripAvailabilitie = $this->tripAvailabilitieRepository->create($input);
 

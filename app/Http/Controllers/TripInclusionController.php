@@ -55,7 +55,7 @@ class TripInclusionController extends AppBaseController
      */
     public function store(CreateTripInclusionRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $tripInclusion = $this->tripInclusionRepository->create($input);
 

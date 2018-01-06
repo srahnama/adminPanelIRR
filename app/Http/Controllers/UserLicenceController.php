@@ -55,7 +55,7 @@ class UserLicenceController extends AppBaseController
      */
     public function store(CreateUserLicenceRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $userLicence = $this->userLicenceRepository->create($input);
 

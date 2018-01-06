@@ -55,7 +55,7 @@ class InclusionController extends AppBaseController
      */
     public function store(CreateInclusionRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $inclusion = $this->inclusionRepository->create($input);
 

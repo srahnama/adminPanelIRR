@@ -55,7 +55,7 @@ class PlaceTypeController extends AppBaseController
      */
     public function store(CreatePlaceTypeRequest $request)
     {
-        $input = $request->all();
+        $input = array_remove_null($request->all());
 
         $placeType = $this->placeTypeRepository->create($input);
 
